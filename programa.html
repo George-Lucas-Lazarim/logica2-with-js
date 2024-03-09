@@ -1,0 +1,29 @@
+<canvas width="600" height="400"></canvas> <!-- Tela em branco no mundo HTML -->
+
+<script>
+	
+	var tela = document.querySelector('canvas'); // chamando a tela
+	var pincel = tela.getContext('2d'); // chamando o pincel e dando o contexto a ele.
+
+	/* comentario de codigo
+
+		pincel.fillStyle = "lightgray"; // cor que o pincel ira pegar
+		pincel.fillRect(0, 0, 600, 400); // desenha um quadrado ou retangulo comecando no eixo especificado (x, y) até o outro ponto (x, y)
+
+	*/
+
+	pincel.fillStyle = 'green';
+	pincel.fillRect(0, 0, 200, 400);
+
+	pincel.fillStyle = 'red';
+	pincel.fillRect(400, 0, 200, 400);
+
+	pincel.fillStyle = 'yellow';
+	pincel.beginPath(); // aviso de caminho
+	// desenhando um caminho
+	pincel.moveTo(300, 200); // ponta de cima do triangulo
+	pincel.lineTo(200, 400); // canto inferior esquerdo do triangulo
+	pincel.lineTo(400, 400); // canto inferior direito do triangulo
+	pincel.fill(); //preencher o triangulo com a cor desejada
+
+</script>
