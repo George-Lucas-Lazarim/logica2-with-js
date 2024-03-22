@@ -8,17 +8,32 @@
 	pincel.fillStyle = 'grey';
 	pincel.fillRect(0, 0, 600, 400);
 
+	var cores = ['blue', 'red', 'green'];
+	var indeceCorAtual = 0;
+
 	function desenhaCirculo(evento) {
 
 		var x = evento.pageX - tela.offsetLeft;
 		var y = evento.pageY - tela.offsetTop;
 
-		pincel.fillStyle = 'red';
+		pincel.fillStyle = cores[indeceCorAtual];
 		pincel.beginPath();
 		pincel.arc(x, y, 10, 0, 2 * 3.14);
 		pincel.fill();
 	}
 
 	tela.onclick = desenhaCirculo;
+
+	function mudaCor() {
+
+		indeceCorAtual++;
+		if (indeceCorAtual >= cores.length) {
+
+			indeceCorAtual = 0;
+		}
+		return false;
+	}
+
+	tela.oncontextmenu = mudaCor;
 
 </script>
