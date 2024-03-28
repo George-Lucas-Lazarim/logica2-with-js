@@ -42,18 +42,30 @@
 
     function leDoTeclado(evento) {
 
+        var proximoX = x;
+        var proximoY = y;
+
         if (evento.keyCode == cima) {
 
-            y = y - taxa;
+            proximoY = y - taxa;
         } else if (evento.keyCode == baixo) {
 
-            y = y + taxa;
+            proximoY = y + taxa;
         } else if (evento.keyCode == esquerda) {
 
-            x = x - taxa;
+            proximoX = x - taxa;
         } else if (evento.keyCode == direita) {
 
-            x = x + taxa;
+            proximoX = x + taxa;
+        }
+
+        // verifica se o próximo movimento ultrapassa as bordas do canvas
+
+        if (proximoX >= 0 && proximoX <= tela.width - 20) {
+            x = proximoX;
+        }
+        if (proximoY >= 0 && proximoY <= tela.height - 20) {
+            y = proximoY;
         }
     }
 
